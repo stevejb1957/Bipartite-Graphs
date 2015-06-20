@@ -22,7 +22,9 @@ window.onload = title;
 function vertex(x,y)
 {
     var ctx = document.getElementById('my_canvas').getContext('2d'); 
+    ctx.beginPath();
     ctx.arc(x,y,10,0,2 * Math.PI,false);
+    ctx.closePath();
     ctx.fill();
 }
 
