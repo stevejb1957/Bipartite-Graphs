@@ -53,6 +53,18 @@ function buildGraph()
     drawEdgesBetweenAllVertices();
 }
 
+function drawGraph()
+{
+    for (var i = 0; i < graph.vertices.length; i++) 
+    {
+        drawVertex(graph.vertices[i]);
+    }
+    for (var i = 0; i < graph.edges.length; i++) 
+    {
+        drawEdge(graph.edges[i]);
+    }
+}
+
 function populateVertexSet()
 {
     for(var x = 400; x < 800; x += 300)    
