@@ -37,11 +37,11 @@ function drawVertex(vertex)
     ctx.fill();
 }
 
-function drawEdge(vertex1, vertex2)
+function drawEdge(edge)
 {
     ctx.beginPath();
-    ctx.moveTo(vertex1.x, vertex1.y);
-    ctx.lineTo(vertex2.x, vertex2.y);
+    ctx.moveTo(edge.from.x, edge.from.y);
+    ctx.lineTo(edge.to.x, edge.to.y);
     ctx.stroke();
     ctx.closePath();
 }
@@ -80,7 +80,8 @@ function drawEdgesBetweenAllVertices()
         {
             if (i != j)
             {
-                drawEdge(graph.vertices[i], graph.vertices[j]);
+                var edge = { from: graph.vertices[i], to: graph.vertices[j] };
+                drawEdge(edge);
             }
         }
     }
