@@ -2,10 +2,12 @@ var ctx;
 var canvas;
 var x;
 var y;
+var vertices = [];
 
 function run()
 {
     drawTitle();
+    buildGraph();
 }
 
 function drawTitle()
@@ -36,10 +38,52 @@ function drawVertex(vertex)
     ctx.fill();
 }
 
-for(var x = 400; x < 800; x += 300)    
+function drawEdge(vertex1, vertex2)
 {
-    for(var y = 300; y < 700; y += 100)
+    var ctx = document.getElementById('my_canvas').getContext('2d'); 
+    ctx.beginPath();
+    ctx.moveTo(vertex1.x, vertex1.y);
+    ctx.lineTo(vertex2.x, vertex2.y);
+    ctx.stroke();
+    ctx.closePath();
+}
+
+function buildGraph()
+{
+    populateVertexSet();
+    drawVertices();
+    drawEdgesBetweenAllVertices();
+}
+
+function populateVertexSet()
+{
+    for(var x = 400; x < 800; x += 300)    
     {
-        drawVertex(x, y);
+        for(var y = 300; y < 700; y += 100)
+        {
+            vertices.push({ x: x, y: y});
+        }    
     }    
+}
+
+function drawVertices()
+{
+    for (var i = 0; i < vertices.length; i++) 
+    {
+        drawVertex(vertices[i]);
+    }
+}
+
+function drawEdgesBetweenAllVertices()
+{
+    for (var i = 0; i < vertices.length; i++) 
+    {
+        for (var j = 0; j < vertices.length; j++) 
+        {
+            if (i != j)
+            {
+                drawEdge(vertices[i], vertices[j]);
+            }
+        }
+    }
 }
