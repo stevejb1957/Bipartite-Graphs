@@ -27,12 +27,11 @@ function drawTitle()
 
 window.onload = run;
 
-
-function drawVertex(x,y)
+function drawVertex(vertex)
 {
     var ctx = document.getElementById('my_canvas').getContext('2d'); 
     ctx.beginPath();
-    ctx.arc(x,y,10,0,2 * Math.PI,false);
+    ctx.arc(vertex.x, vertex.y, 10, 0, 2 * Math.PI, false);
     ctx.closePath();
     ctx.fill();
 }
