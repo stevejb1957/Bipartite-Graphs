@@ -5,6 +5,8 @@ var y;
 var graph = { vertices: [], edges: [] };
 var ctx = document.getElementById('my_canvas').getContext('2d'); 
 
+window.onload = run;
+
 function run()
 {
     drawTitle();
@@ -28,48 +30,10 @@ function drawTitle()
     ctx.fillStyle = "black";
 }
 
-window.onload = run;
-
-function drawVertex(vertex)
-{
-    ctx.beginPath();
-    ctx.arc(vertex.x, vertex.y, 10, 0, 2 * Math.PI, false);
-    ctx.closePath();
-    ctx.fill();
-}
-
-function drawEdge(edge)
-{
-    ctx.beginPath();
-    ctx.moveTo(edge.from.x, edge.from.y);
-    ctx.lineTo(edge.to.x, edge.to.y);
-    ctx.stroke();
-    ctx.closePath();
-}
-
 function buildGraph()
 {
     generateVertexSet();
     generateEdgeSet();
-}
-
-function connectVertices(vertexIndex1, vertexIndex2)
-{
-    var edge = { from: graph.vertices[vertexIndex1], 
-                 to:   graph.vertices[vertexIndex2] };
-    graph.edges.push(edge);
-}
-
-function drawGraph()
-{
-    for (var i = 0; i < graph.vertices.length; i++) 
-    {
-        drawVertex(graph.vertices[i]);
-    }
-    for (var i = 0; i < graph.edges.length; i++) 
-    {
-        drawEdge(graph.edges[i]);
-    }
 }
 
 function generateVertexSet()
@@ -95,4 +59,40 @@ function generateEdgeSet()
             }
         }
     }
+}
+
+function connectVertices(vertexIndex1, vertexIndex2)
+{
+    var edge = { from: graph.vertices[vertexIndex1], 
+                 to:   graph.vertices[vertexIndex2] };
+    graph.edges.push(edge);
+}
+
+function drawGraph()
+{
+    for (var i = 0; i < graph.vertices.length; i++) 
+    {
+        drawVertex(graph.vertices[i]);
+    }
+    for (var i = 0; i < graph.edges.length; i++) 
+    {
+        drawEdge(graph.edges[i]);
+    }
+}
+
+function drawVertex(vertex)
+{
+    ctx.beginPath();
+    ctx.arc(vertex.x, vertex.y, 10, 0, 2 * Math.PI, false);
+    ctx.closePath();
+    ctx.fill();
+}
+
+function drawEdge(edge)
+{
+    ctx.beginPath();
+    ctx.moveTo(edge.from.x, edge.from.y);
+    ctx.lineTo(edge.to.x, edge.to.y);
+    ctx.stroke();
+    ctx.closePath();
 }
