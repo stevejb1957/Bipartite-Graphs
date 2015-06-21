@@ -9,6 +9,7 @@ function run()
 {
     drawTitle();
     buildGraph();
+    drawGraph();
 }
 
 function drawTitle()
@@ -51,7 +52,6 @@ function buildGraph()
     graph.vertices = generateVertexSet();
     generateEdgeSet();
     drawVertices();
-    drawEdgesBetweenAllVertices();
 }
 
 function connectVertices(vertexIndex1, vertexIndex2)
@@ -105,20 +105,5 @@ function drawVertices()
     for (var i = 0; i < graph.vertices.length; i++) 
     {
         drawVertex(graph.vertices[i]);
-    }
-}
-
-function drawEdgesBetweenAllVertices()
-{
-    for (var i = 0; i < graph.vertices.length; i++) 
-    {
-        for (var j = 0; j < graph.vertices.length; j++) 
-        {
-            if (i != j)
-            {
-                var edge = { from: graph.vertices[i], to: graph.vertices[j] };
-                drawEdge(edge);
-            }
-        }
     }
 }
