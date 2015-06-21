@@ -3,6 +3,11 @@ var canvas;
 var x;
 var y;
 
+function run()
+{
+    title();
+}
+
 function title()
 {
     var ctx = document.getElementById('my_canvas').getContext('2d'); 
@@ -16,7 +21,7 @@ function title()
     ctx.strokeText("Bipartite Graphs",280,100);
 }
 
-window.onload = title;
+window.onload = run;
 
 
 function drawVertex(x,y)
