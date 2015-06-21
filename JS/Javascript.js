@@ -5,10 +5,10 @@ var y;
 
 function run()
 {
-    title();
+    drawTitle();
 }
 
-function title()
+function drawTitle()
 {
     var ctx = document.getElementById('my_canvas').getContext('2d'); 
     ctx.fillStyle = "rgba(79, 33, 235, 0.72)";
