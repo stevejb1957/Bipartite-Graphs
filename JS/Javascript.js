@@ -48,7 +48,7 @@ function drawEdge(edge)
 
 function buildGraph()
 {
-    populateVertexSet();
+    graph.vertices = generateVertexSet();
     drawVertices();
     drawEdgesBetweenAllVertices();
 }
@@ -65,15 +65,17 @@ function drawGraph()
     }
 }
 
-function populateVertexSet()
+function generateVertexSet()
 {
+    var vertices = [];
     for(var x = 400; x < 800; x += 300)    
     {
         for(var y = 300; y < 700; y += 100)
         {
-            graph.vertices.push({ x: x, y: y});
+            vertices.push({ x: x, y: y});
         }    
     }    
+    return vertices;
 }
 
 function drawVertices()
