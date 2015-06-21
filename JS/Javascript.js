@@ -53,6 +53,13 @@ function buildGraph()
     drawEdgesBetweenAllVertices();
 }
 
+function connectVertices(vertexIndex1, vertexIndex2)
+{
+    var edge = { from: graph.vertices[vertexIndex1], 
+                 to:   graph.vertices[vertexIndex2] };
+    graph.edges.push(edge);
+}
+
 function drawGraph()
 {
     for (var i = 0; i < graph.vertices.length; i++) 
