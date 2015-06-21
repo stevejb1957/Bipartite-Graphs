@@ -51,7 +51,6 @@ function buildGraph()
 {
     generateVertexSet();
     generateEdgeSet();
-    drawVertices();
 }
 
 function connectVertices(vertexIndex1, vertexIndex2)
@@ -95,13 +94,5 @@ function generateEdgeSet()
                 connectVertices(i, j);
             }
         }
-    }
-}
-
-function drawVertices()
-{
-    for (var i = 0; i < graph.vertices.length; i++) 
-    {
-        drawVertex(graph.vertices[i]);
     }
 }
