@@ -3,6 +3,7 @@ var canvas;
 var x;
 var y;
 var vertices = [];
+var ctx = document.getElementById('my_canvas').getContext('2d'); 
 
 function run()
 {
@@ -12,7 +13,6 @@ function run()
 
 function drawTitle()
 {
-    var ctx = document.getElementById('my_canvas').getContext('2d'); 
     ctx.fillStyle = "rgba(79, 33, 235, 0.72)";
     ctx.shadowColor = "#000";
     ctx.shadowOffsetX = 4;
@@ -31,7 +31,6 @@ window.onload = run;
 
 function drawVertex(vertex)
 {
-    var ctx = document.getElementById('my_canvas').getContext('2d'); 
     ctx.beginPath();
     ctx.arc(vertex.x, vertex.y, 10, 0, 2 * Math.PI, false);
     ctx.closePath();
@@ -40,7 +39,6 @@ function drawVertex(vertex)
 
 function drawEdge(vertex1, vertex2)
 {
-    var ctx = document.getElementById('my_canvas').getContext('2d'); 
     ctx.beginPath();
     ctx.moveTo(vertex1.x, vertex1.y);
     ctx.lineTo(vertex2.x, vertex2.y);
