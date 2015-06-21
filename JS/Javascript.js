@@ -28,12 +28,10 @@ function vertex(x,y)
     ctx.fill();
 }
 
-for(x=400;x<800;x=x+300)
-    
+for(var x = 400; x < 800; x += 300)    
 {
-for(y=300;y<700;y=y+100)
-{
-    vertex(x,y);
-}
-    
+    for(var y = 300; y < 700; y += 100)
+    {
+        vertex(x, y);
+    }    
 }
