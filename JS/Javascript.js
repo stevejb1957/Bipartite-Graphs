@@ -2,7 +2,7 @@ var ctx;
 var canvas;
 var x;
 var y;
-var vertices = [];
+var graph = { vertices: [], edges: [] };
 var ctx = document.getElementById('my_canvas').getContext('2d'); 
 
 function run()
@@ -59,28 +59,28 @@ function populateVertexSet()
     {
         for(var y = 300; y < 700; y += 100)
         {
-            vertices.push({ x: x, y: y});
+            graph.vertices.push({ x: x, y: y});
         }    
     }    
 }
 
 function drawVertices()
 {
-    for (var i = 0; i < vertices.length; i++) 
+    for (var i = 0; i < graph.vertices.length; i++) 
     {
-        drawVertex(vertices[i]);
+        drawVertex(graph.vertices[i]);
     }
 }
 
 function drawEdgesBetweenAllVertices()
 {
-    for (var i = 0; i < vertices.length; i++) 
+    for (var i = 0; i < graph.vertices.length; i++) 
     {
-        for (var j = 0; j < vertices.length; j++) 
+        for (var j = 0; j < graph.vertices.length; j++) 
         {
             if (i != j)
             {
-                drawEdge(vertices[i], vertices[j]);
+                drawEdge(graph.vertices[i], graph.vertices[j]);
             }
         }
     }
