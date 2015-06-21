@@ -19,7 +19,7 @@ function title()
 window.onload = title;
 
 
-function vertex(x,y)
+function drawVertex(x,y)
 {
     var ctx = document.getElementById('my_canvas').getContext('2d'); 
     ctx.beginPath();
@@ -32,6 +32,6 @@ for(var x = 400; x < 800; x += 300)
 {
     for(var y = 300; y < 700; y += 100)
     {
-        vertex(x, y);
+        drawVertex(x, y);
     }    
 }
