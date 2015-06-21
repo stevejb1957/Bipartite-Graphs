@@ -19,6 +19,10 @@ function drawTitle()
     ctx.font = "bold 80px Ariel";
     ctx.fillText("Bipartite Graphs",280,100);
     ctx.strokeText("Bipartite Graphs",280,100);
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = "black";
 }
 
 window.onload = run;
