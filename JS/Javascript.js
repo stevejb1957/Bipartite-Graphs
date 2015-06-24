@@ -67,15 +67,14 @@ function connectVertices(vertexIndex1, vertexIndex2)
                  to:   graph.vertices[vertexIndex2] };
     if (!areVerticesConnected(edge.from, edge.to))
     {
-        logConnection(edge);
+        logConnection(vertexIndex1, vertexIndex2);
         graph.edges.push(edge);
     }
 } 
 
-function logConnection(edge)
+function logConnection(vertexIndex1, vertexIndex2)
 {
-    console.log("Connecting (" + edge.from.x + "," + 
-        edge.from.y + ") to (" + edge.to.x + "," + edge.to.y + ")");    
+    console.log("Connecting " + vertexIndex1 + " to " + vertexIndex2);    
 }
 
 function areVerticesConnected(vertex1, vertex2)
