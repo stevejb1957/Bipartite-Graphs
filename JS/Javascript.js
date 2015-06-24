@@ -49,7 +49,7 @@ function generateVertexSet()
 
 function generateEdgeSet()
 {
-    for (var i = 0; i < graph.vertices.length; i++) 
+    for (var i = 4; i < graph.vertices.length; i++) 
     {
         for (var j = 0; j < graph.vertices.length; j++) 
         {
@@ -93,6 +93,8 @@ function drawEdge(edge)
     ctx.beginPath();
     ctx.moveTo(edge.from.x, edge.from.y);
     ctx.lineTo(edge.to.x, edge.to.y);
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = "3";
     ctx.stroke();
     ctx.closePath();
 }
