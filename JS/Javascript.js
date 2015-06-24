@@ -65,7 +65,10 @@ function connectVertices(vertexIndex1, vertexIndex2)
 {
     var edge = { from: graph.vertices[vertexIndex1], 
                  to:   graph.vertices[vertexIndex2] };
-    graph.edges.push(edge);
+    if (!areVerticesConnected(edge.from, edge.to))
+    {
+        graph.edges.push(edge);
+    }
 } 
 
 function areVerticesConnected(vertex1, vertex2)
