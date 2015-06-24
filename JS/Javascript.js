@@ -68,6 +68,21 @@ function connectVertices(vertexIndex1, vertexIndex2)
     graph.edges.push(edge);
 } 
 
+function areVerticesConnected(vertex1, vertex2)
+{
+    for (var i = 0; i < graph.edges.length; i++) 
+    {
+        var fromVertex = graph.edges[i].from;
+        var toVertex = graph.edges[i].to;
+        if ((areEqual(fromVertex, vertex1) && areEqual(toVertex, vertex2)) ||
+            (areEqual(fromVertex, vertex2) && areEqual(toVertex, vertex1)))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 function areEqual(vertex1, vertex2)
 {
     return vertex1.x == vertex2.x && vertex1.y == vertex2.y;
