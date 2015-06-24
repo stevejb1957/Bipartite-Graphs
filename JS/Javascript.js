@@ -66,6 +66,11 @@ function connectVertices(vertexIndex1, vertexIndex2)
     var edge = { from: graph.vertices[vertexIndex1], 
                  to:   graph.vertices[vertexIndex2] };
     graph.edges.push(edge);
+} 
+
+function areEqual(vertex1, vertex2)
+{
+    return vertex1.x == vertex2.x && vertex1.y == vertex2.y;
 }
 
 function drawGraph()
