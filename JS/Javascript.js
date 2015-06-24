@@ -49,14 +49,11 @@ function generateVertexSet()
 
 function generateEdgeSet()
 {
-    for (var i = 4; i < graph.vertices.length; i++) 
+    for (var i = 0; i < 4; i++) 
     {
-        for (var j = 0; j < graph.vertices.length; j++) 
+        for (var j = 4; j < 8; j++) 
         {
-            if (i != j)
-            {
-                connectVertices(i, j);
-            }
+            connectVertices(i, j);
         }
     }
 }
